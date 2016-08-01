@@ -1,9 +1,9 @@
-function Journal(newTitle, newBody) {
+function Entry(newTitle, newBody) {
   this.newTitle = newTitle;
   this.newBody = newBody;
 }
 
-Journal.prototype.wordCount = function (inputBody) {
+Entry.prototype.wordCount = function (inputBody) {
   var wordCount = 0;
   var bodyArray = inputBody.split(" ");
   for (var i = 0; i < bodyArray.length; i ++) {
@@ -12,7 +12,7 @@ Journal.prototype.wordCount = function (inputBody) {
   return wordCount;
 }
 
-Journal.prototype.characterCount = function (inputBody) {
+Entry.prototype.characterCount = function (inputBody) {
   var characterCount = 0;
   var bodyArray = inputBody.split("");
   for (var i = 0; i < bodyArray.length; i++) {
@@ -21,7 +21,7 @@ Journal.prototype.characterCount = function (inputBody) {
   return characterCount;
 }
 
-Journal.prototype.vowelCount = function (inputBody) {
+Entry.prototype.vowelCount = function (inputBody) {
   var vowelCount = 0;
   var bodyArray = inputBody.split("");
   for (var i = 0; i < bodyArray.length; i++) {
@@ -32,7 +32,7 @@ Journal.prototype.vowelCount = function (inputBody) {
   return vowelCount;
 }
 
-Journal.prototype.consonantCount = function (inputBody) {
+Entry.prototype.consonantCount = function (inputBody) {
   var consonantCount = 0;
   var bodyArray = inputBody.replace(/\s+/g, '').split("");
   for (var i = 0; i < bodyArray.length; i++) {
@@ -46,4 +46,15 @@ Journal.prototype.consonantCount = function (inputBody) {
   return consonantCount;
 }
 
-exports.journalModule = Journal;
+Entry.prototype.getTeaser = function (inputBody) {
+  var bodyArray = inputBody.split(" ");
+  var finalArray = [];
+  for (var i = 0; i < 8; i ++)
+  {
+    finalArray.push(bodyArray[i]);
+  }
+  var resultArray = finalArray.join(" ");
+  return resultArray + "...";
+}
+
+exports.entryModule = Entry;
