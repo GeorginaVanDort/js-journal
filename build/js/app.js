@@ -8,9 +8,11 @@ $(document).ready(function(){
     var inputBody = $("#body").val();
     var journalCount = new Journal ("Containment", "Deadly viral outbreak in Atlanta Georgia");
     var finalWordCount = journalCount.wordCount(inputBody);
+    var finalCharacterCount = journalCount.characterCount(inputBody);
     var finalVowelCount = journalCount.vowelCount(inputBody);
     var finalConsonantCount = journalCount.consonantCount(inputBody);
     $("#word-count-result").text(finalWordCount);
+    $("#character-count-result").text(finalCharacterCount);
     $("#vowel-count-result").text(finalVowelCount);
     $("#consonant-count-result").text(finalConsonantCount);
   });
@@ -29,7 +31,16 @@ Journal.prototype.wordCount = function (inputBody) {
     wordCount += 1;
   }
   return wordCount;
-};
+}
+
+Journal.prototype.characterCount = function (inputBody) {
+  var characterCount = 0;
+  var bodyArray = inputBody.split("");
+  for (var i = 0; i < bodyArray.length; i++) {
+      characterCount += 1;
+    }
+  return characterCount;
+}
 
 Journal.prototype.vowelCount = function (inputBody) {
   var vowelCount = 0;
@@ -40,7 +51,7 @@ Journal.prototype.vowelCount = function (inputBody) {
     }
   }
   return vowelCount;
-};
+}
 
 Journal.prototype.consonantCount = function (inputBody) {
   var consonantCount = 0;
@@ -49,9 +60,12 @@ Journal.prototype.consonantCount = function (inputBody) {
     if (bodyArray[i] !== "a" || bodyArray[i] !== "e" || bodyArray[i] !== "i" || bodyArray[i] !== "o" || bodyArray[i] !== "u") {
       consonantCount += 1;
     }
+    else {
+      consonantCount += 0;
+    }
   }
   return consonantCount;
-};
+}
 
 exports.journalModule = Journal;
 
