@@ -55,9 +55,9 @@ Journal.prototype.vowelCount = function (inputBody) {
 
 Journal.prototype.consonantCount = function (inputBody) {
   var consonantCount = 0;
-  var bodyArray = inputBody.split("");
+  var bodyArray = inputBody.replace(/\s+/g, '').split("");
   for (var i = 0; i < bodyArray.length; i++) {
-    if (bodyArray[i] !== "a" || bodyArray[i] !== "e" || bodyArray[i] !== "i" || bodyArray[i] !== "o" || bodyArray[i] !== "u") {
+    if (bodyArray[i] !== "a" && bodyArray[i] !== "e" && bodyArray[i] !== "i" && bodyArray[i] !== "o" && bodyArray[i] !== "u") {
       consonantCount += 1;
     }
     else {
@@ -68,9 +68,5 @@ Journal.prototype.consonantCount = function (inputBody) {
 }
 
 exports.journalModule = Journal;
-
-
-
-// .replace(/[\s,]+/g, "");
 
 },{}]},{},[1]);
