@@ -10,7 +10,7 @@ Entry.prototype.wordCount = function() {
     wordCount += 1;
   }
   return wordCount;
-}
+};
 
 Entry.prototype.characterCount = function() {
   var characterCount = 0;
@@ -19,7 +19,7 @@ Entry.prototype.characterCount = function() {
       characterCount += 1;
     }
   return characterCount;
-}
+};
 
 Entry.prototype.vowelCount = function() {
   var vowelCount = 0;
@@ -30,7 +30,7 @@ Entry.prototype.vowelCount = function() {
     }
   }
   return vowelCount;
-}
+};
 
 Entry.prototype.consonantCount = function() {
   var consonantCount = 0;
@@ -44,7 +44,7 @@ Entry.prototype.consonantCount = function() {
     }
   }
   return consonantCount;
-}
+};
 
 Entry.prototype.getTeaser = function() {
   var bodyArray = this.newBody.split(" ");
@@ -55,6 +55,6 @@ Entry.prototype.getTeaser = function() {
   }
   var resultArray = finalArray.join(" ");
   return resultArray + "...";
-}
+};
 
 exports.entryModule = Entry;
