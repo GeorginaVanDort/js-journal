@@ -6,10 +6,13 @@ $(document).ready(function(){
     event.preventDefault();
     var inputTitle = $("#title").val();
     var inputBody = $("#body").val();
-    var journalWordCount = new Journal ("Containment", "Deadly viral outbreak in Atlanta Georgia");
-    var finalWordCount = journalWordCount.wordCount(inputBody);
+    var journalCount = new Journal ("Containment", "Deadly viral outbreak in Atlanta Georgia");
+    var finalWordCount = journalCount.wordCount(inputBody);
+    var finalVowelCount = journalCount.vowelCount(inputBody);
+    var finalConsonantCount = journalCount.consonantCount(inputBody);
     $("#word-count-result").text(finalWordCount);
-    console.log(finalWordCount);
+    $("#vowel-count-result").text(finalVowelCount);
+    $("#consonant-count-result").text(finalConsonantCount);
   });
 });
 
@@ -26,8 +29,34 @@ Journal.prototype.wordCount = function (inputBody) {
     wordCount += 1;
   }
   return wordCount;
-}
+};
+
+Journal.prototype.vowelCount = function (inputBody) {
+  var vowelCount = 0;
+  var bodyArray = inputBody.split("");
+  for (var i = 0; i < bodyArray.length; i++) {
+    if (bodyArray[i] === "a" || bodyArray[i] === "e" || bodyArray[i] === "i" || bodyArray[i] === "o" || bodyArray[i] === "u") {
+      vowelCount += 1;
+    }
+  }
+  return vowelCount;
+};
+
+Journal.prototype.consonantCount = function (inputBody) {
+  var consonantCount = 0;
+  var bodyArray = inputBody.split("");
+  for (var i = 0; i < bodyArray.length; i++) {
+    if (bodyArray[i] !== "a" || bodyArray[i] !== "e" || bodyArray[i] !== "i" || bodyArray[i] !== "o" || bodyArray[i] !== "u") {
+      consonantCount += 1;
+    }
+  }
+  return consonantCount;
+};
 
 exports.journalModule = Journal;
+
+
+
+// .replace(/[\s,]+/g, "");
 
 },{}]},{},[1]);

@@ -5,9 +5,12 @@ $(document).ready(function(){
     event.preventDefault();
     var inputTitle = $("#title").val();
     var inputBody = $("#body").val();
-    var journalWordCount = new Journal ("Containment", "Deadly viral outbreak in Atlanta Georgia");
-    var finalWordCount = journalWordCount.wordCount(inputBody);
+    var journalCount = new Journal ("Containment", "Deadly viral outbreak in Atlanta Georgia");
+    var finalWordCount = journalCount.wordCount(inputBody);
+    var finalVowelCount = journalCount.vowelCount(inputBody);
+    var finalConsonantCount = journalCount.consonantCount(inputBody);
     $("#word-count-result").text(finalWordCount);
-    console.log(finalWordCount);
+    $("#vowel-count-result").text(finalVowelCount);
+    $("#consonant-count-result").text(finalConsonantCount);
   });
 });
