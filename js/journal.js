@@ -12,4 +12,4 @@ Journal.prototype.wordCount = function (inputBody) {
   return wordCount;
 }
 
-exports.journalModule. = Journal;
+exports.journalModule = Journal;

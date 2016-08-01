@@ -8,5 +8,6 @@ $(document).ready(function(){
     var journalWordCount = new Journal ("Containment", "Deadly viral outbreak in Atlanta Georgia");
     var finalWordCount = journalWordCount.wordCount(inputBody);
     $("#word-count-result").text(finalWordCount);
+    console.log(finalWordCount);
   });
 });
